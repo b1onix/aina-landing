@@ -7,7 +7,6 @@ import {
   ClipboardCheck,
   Database,
   FileCheck2,
-  Leaf,
   LockKeyhole,
   Menu,
   Network,
@@ -19,6 +18,8 @@ import {
 
 const heroImage =
   'https://images.unsplash.com/photo-1663353104784-4568fbf87d9d?auto=format&fit=crop&fm=jpg&q=80&w=1600';
+
+const logoMark = new URL('../shapes-aina.svg', import.meta.url).href;
 
 const copyrightYear = 2026;
 
@@ -132,10 +133,8 @@ const plans = [
 function Logo() {
   return (
     <a href="#top" className="flex items-center gap-3 text-aina-green" aria-label="AINA home">
-      <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-aina-yellow text-aina-green">
-        <Leaf size={19} strokeWidth={2.2} />
-      </span>
-      <span className="text-xl font-extrabold">AINA</span>
+      <img src={logoMark} alt="" aria-hidden="true" className="h-9 w-9 flex-none" />
+      <span className="font-logo text-[1.45rem] font-extrabold leading-none">AINA</span>
     </a>
   );
 }
