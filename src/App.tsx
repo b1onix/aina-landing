@@ -15,6 +15,8 @@ import {
   Users,
   X,
 } from 'lucide-react';
+import {AdminPanel} from './AdminPanel';
+import {ReviewWidget} from './ReviewWidget';
 
 const heroImage =
   'https://images.unsplash.com/photo-1663353104784-4568fbf87d9d?auto=format&fit=crop&fm=jpg&q=80&w=1600';
@@ -202,6 +204,11 @@ function SectionHeader({
 
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const isAdmin = window.location.pathname.replace(/\/$/, '') === '/admin';
+
+  if (isAdmin) {
+    return <AdminPanel />;
+  }
 
   return (
     <div id="top" className="min-h-screen bg-aina-light font-sans text-aina-green">
@@ -590,6 +597,7 @@ export default function App() {
           </div>
         </div>
       </footer>
+      <ReviewWidget />
     </div>
   );
 }
