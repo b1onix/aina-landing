@@ -95,15 +95,15 @@ const workflowSteps = [
 const plans = [
   {
     name: 'Essential',
-    price: 'EUR 499',
-    note: 'For smaller teams getting document checks under control.',
+    price: '$29.99',
+    note: 'For small teams that need a dependable document check workflow.',
     features: ['Automated document verification', 'Standard update watch', 'One workspace', 'Email support'],
     cta: 'Start Essential',
   },
   {
     name: 'Advanced',
-    price: 'EUR 1,299',
-    note: 'For active supply chains that need continuous oversight.',
+    price: '$59.99',
+    note: 'For active supply chains that need live checks and faster exception handling.',
     features: [
       'Everything in Essential',
       'Real-time exception detection',
@@ -243,15 +243,26 @@ export default function App() {
       <MobileMenu open={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
 
       <main>
-        <section className="bg-aina-green text-white">
-          <div className="mx-auto grid max-w-7xl gap-10 px-5 pb-12 pt-14 md:grid-cols-[1.04fr_0.96fr] md:px-8 md:pb-16 md:pt-20">
-            <div className="flex flex-col justify-center">
-              <h1 className="max-w-3xl text-5xl font-extrabold leading-[1.02] md:text-6xl">
-                AINA Compliance Intelligence
+        <section className="relative isolate overflow-hidden bg-aina-green text-white">
+          <img
+            src={heroImage}
+            alt="Wooden walkway through a certified forest"
+            className="absolute inset-0 -z-20 h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(0,60,68,0.96)_0%,rgba(0,60,68,0.78)_46%,rgba(0,60,68,0.34)_100%)]" />
+
+          <div className="mx-auto flex min-h-[calc(100svh-136px)] max-w-7xl flex-col justify-between px-5 py-12 md:px-8 md:py-16">
+            <div className="max-w-3xl pt-6 md:pt-10">
+              <h1 className="text-5xl font-extrabold leading-[1.02] md:text-7xl">
+                Agent Aina
               </h1>
+              <p className="mt-5 max-w-2xl text-2xl font-extrabold leading-tight text-aina-yellow md:text-4xl">
+                Compliance has a new name — Aina
+              </p>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-aina-light/90">
-                AI assistance for FSC and PEFC Chain of Custody teams that need cleaner audits,
-                faster document checks, and fewer manual reconciliations.
+                Your Compliance Intelligence — Always On. Agent Aina is at your service 24/7,
+                continuously analysing your documents, your processes, and the latest FSC and
+                PEFC Chain of Custody requirements.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a
@@ -268,64 +279,35 @@ export default function App() {
                   See services
                 </a>
               </div>
-              <div className="mt-10 grid max-w-2xl grid-cols-1 border-y border-white/20 sm:grid-cols-3 sm:divide-x sm:divide-white/20">
-                <div className="py-4 sm:px-4">
-                  <div className="text-2xl font-extrabold text-aina-yellow">FSC</div>
-                  <p className="mt-1 text-sm text-aina-light/70">Chain of Custody controls</p>
-                </div>
-                <div className="py-4 sm:px-4">
-                  <div className="text-2xl font-extrabold text-aina-yellow">PEFC</div>
-                  <p className="mt-1 text-sm text-aina-light/70">Claims and supplier evidence</p>
-                </div>
-                <div className="py-4 sm:px-4">
-                  <div className="text-2xl font-extrabold text-aina-yellow">24/7</div>
-                  <p className="mt-1 text-sm text-aina-light/70">Compliance monitoring</p>
-                </div>
-              </div>
             </div>
 
-            <div className="relative min-h-[430px] overflow-hidden rounded-lg border border-white/20 bg-aina-green/40">
-              <img
-                src={heroImage}
-                alt="Wooden walkway through a certified forest"
-                className="absolute inset-0 h-full w-full object-cover opacity-60"
-              />
-              <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,60,68,0.92),rgba(0,60,68,0.38))]" />
-              <div className="relative flex h-full flex-col justify-end p-5 md:p-7">
-                <div className="w-full max-w-md rounded-lg border border-white/20 bg-white p-5 text-aina-green shadow-sm">
-                  <div className="flex items-start justify-between gap-4 border-b border-aina-green/10 pb-4">
+            <div className="mt-12 grid overflow-hidden rounded-lg border border-white/18 bg-white text-aina-green shadow-sm lg:grid-cols-[0.8fr_1.2fr]">
+              <div className="border-b border-aina-green/10 p-5 lg:border-b-0 lg:border-r">
+                <div className="flex items-center justify-between gap-4">
                     <div>
                       <h2 className="text-lg font-extrabold">Daily compliance queue</h2>
-                      <p className="mt-1 text-sm text-aina-green/60">Agent Aina reviewed 128 records today.</p>
+                    <p className="mt-1 text-sm text-aina-green/60">Agent Aina is at your service 24/7.</p>
                     </div>
-                    <ShieldCheck className="h-6 w-6 text-aina-green" />
-                  </div>
-                  <div className="divide-y divide-aina-green/10">
-                    {[
-                      ['FSC-STD-40-004 update', 'Reviewed'],
-                      ['Supplier certificate scope', 'Renewed'],
-                      ['Oak veneer volume balance', 'Flagged'],
-                    ].map(([label, state]) => (
-                      <div key={label} className="flex items-center justify-between gap-4 py-3">
-                        <span className="text-sm font-semibold text-aina-green/80">{label}</span>
-                        <span
-                          className={`text-sm font-bold ${
-                            state === 'Flagged' ? 'text-[#9b7610]' : 'text-aina-green'
-                          }`}
-                        >
-                          {state}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                  <a
-                    href="#agent"
-                    className="mt-2 inline-flex items-center gap-2 text-sm font-extrabold text-aina-green"
-                  >
-                    Review agent workflow
-                    <ArrowRight size={15} />
-                  </a>
+                  <ShieldCheck className="h-6 w-6 text-aina-green" />
                 </div>
+              </div>
+              <div className="grid divide-y divide-aina-green/10 md:grid-cols-3 md:divide-x md:divide-y-0">
+                {[
+                  ['She never sleeps.', 'Active'],
+                  ['She never misses an update.', 'Tracking'],
+                  ['She never forgets a rule.', 'Ready'],
+                ].map(([label, state]) => (
+                  <div key={label} className="p-5">
+                    <p className="text-sm font-semibold text-aina-green/68">{label}</p>
+                    <p
+                      className={`mt-2 text-lg font-extrabold ${
+                        state === 'Flagged' ? 'text-[#9b7610]' : 'text-aina-green'
+                      }`}
+                    >
+                      {state}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -349,19 +331,29 @@ export default function App() {
         <section id="agent" className="bg-aina-light">
           <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 md:grid-cols-[0.9fr_1.1fr] md:px-8 md:py-24">
             <div>
-              <SectionHeader title="Agent Aina keeps the audit trail moving.">
+              <SectionHeader title="Your Compliance Intelligence — Always On.">
                 <p>
-                  Aina watches the documents and standards that slow teams down: certificates,
-                  supplier declarations, product group logic, volume balances, and corrective actions.
+                  While you focus on what truly matters — running and growing your business — Aina works
+                  tirelessly in the background, tracking every change, update and interpretation across
+                  FSC and PEFC Chain of Custody.
                 </p>
               </SectionHeader>
               <div className="space-y-4 border-l border-aina-green/20 pl-5">
                 <p className="text-lg font-extrabold leading-7 text-aina-green">
-                  Always connected. Always checking. Clear when something needs a person.
+                  She never sleeps. She never misses an update. She never forgets a rule.
                 </p>
                 <p className="leading-7 text-aina-green/70">
-                  The point is not to replace your compliance lead. It is to give them a cleaner desk,
-                  a sharper exception list, and a record that is easier to defend.
+                  Aina continuously analyses your documents, your processes, and the latest standard
+                  requirements, ensuring your organisation stays fully compliant, fully informed, and
+                  fully prepared — at all times.
+                </p>
+                <p className="leading-7 text-aina-green/70">
+                  Because in a world where standards evolve, supply chains shift and expectations rise…
+                  You deserve an agent who evolves even faster.
+                </p>
+                <p className="text-lg font-extrabold leading-7 text-aina-green">
+                  That’s why we are your chAIn. Strong where it matters. Smart where it counts.
+                  Always connected. Always compliant.
                 </p>
               </div>
             </div>
